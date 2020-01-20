@@ -1,0 +1,40 @@
+<!DOCUMENT html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+</head>
+<body>
+
+<input type="text" id="title"><br />
+<textarea id="textarea1"></textarea>
+
+<button id="save">保存</button>
+<button id="delete">削除</button>
+
+<script>
+// Data Load
+$(function(){
+    $("#title").val(window.localStorage.getItem('title'));
+    $("#textarea1").val(window.localStorage.getItem('text'));
+});
+
+$("#save").click(function(){
+    window.localStorage.setItem('title', $("#title").val());
+    window.localStorage.setItem('text',  $("#textarea1").val());
+    alert("ナイスアポ。");
+});
+
+$("#delete").click(function(){
+    window.localStorage.clear();
+    $("#title").val('');
+    $("#textarea1").val('');
+    alert("データを全て削除しました。");
+});
+
+</script>
+
+</body>
+</html>
